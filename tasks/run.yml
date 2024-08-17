@@ -1,0 +1,35 @@
+---
+  - name: Copy Dockerfile
+    template:
+      src: templates/Dockerfile.j2
+      dest: /root/docker/Dockerfile
+    tags: update
+
+  - name: Build Docker image
+    command:
+      cmd: docker build -t {{ proxy_name }} .
+      chdir: /root/docker
+    tags: update
+
+  - name: Copy Compose file
+    template:
+      src: templates/docker-compose.yml.j2
+      dest: /root/docker/docker-compose.yml
+    tags: update
+
+  - name: Run Docker Compose
+    command:
+      cmd: docker compose up -d
+      chdir: /root/docker
+    tags: update
+
+  - name: Clear Docker garbage
+    command:
+      cmd: docker system prune -af --volumes
+    tags: update
+
+  - name: Remove dockerfile file
+    file:
+      path: /root/docker/Dockerfile
+      state: absent
+    tags: update

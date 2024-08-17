@@ -1,0 +1,8 @@
+services:
+  {{ proxy_name }}:
+    image: {{ proxy_name }}
+    container_name: {{ proxy_name }}
+    hostname: {{ proxy_address }}
+    ports:
+      - "{{ proxy_port }}:1080"
+    restart: unless-stopped

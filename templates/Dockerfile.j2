@@ -1,0 +1,5 @@
+FROM {{ proxy_image }}
+
+{% if proxy_auth == true %}
+RUN {% for user in proxy_users %}printf '{{ user.pass }}\n{{ user.pass }}\n' | adduser {{ user.name }};{% endfor %}
+{% endif %}

@@ -1,0 +1,7 @@
+---
+- name:  Cleaning
+  include_tasks: 'tasks/prepare.yml'
+
+- name:  Run compose-stack
+  include_tasks: 'tasks/run.yml'
+  tags: update
