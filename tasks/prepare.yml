@@ -1,5 +1,11 @@
 ---
   - name: Create directories
     file:
-      path: /root/docker
+      path: /root/docker/socksproxy
       state: directory
+
+  - name: Copy sockd conf
+    template:
+      src: templates/sockd.conf.j2
+      dest: /root/docker/socksproxy/sockd.conf
+    tags: update

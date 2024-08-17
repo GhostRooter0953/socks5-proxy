@@ -5,4 +5,6 @@ services:
     hostname: {{ proxy_address }}
     ports:
       - "{{ proxy_port }}:1080"
+    volumes:
+      - /root/docker/socksproxy/sockd.conf:/etc/sockd.conf
     restart: unless-stopped
