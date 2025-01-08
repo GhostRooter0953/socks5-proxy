@@ -1,5 +1,5 @@
-FROM {{ proxy_image }}
+FROM {{ socks5_proxy_image }}
 
-{% if proxy_auth == true %}
-RUN {% for user in proxy_users %}printf '{{ user.pass }}\n{{ user.pass }}\n' | adduser {{ user.name }};{% endfor %}
+{% if socks5_proxy_auth == true %}
+RUN {% for user in socks5_proxy_users %}printf '{{ user.password }}\n{{ user.password }}\n' | adduser {{ user.login }};{% endfor %}
 {% endif %}

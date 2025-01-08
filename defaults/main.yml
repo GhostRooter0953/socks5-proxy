@@ -1,9 +1,10 @@
 ---
-proxy_name: socks5-proxy
-proxy_image: wernight/dante
-proxy_address: proxy.example.com
-proxy_port: 1080
-proxy_auth: false
-proxy_users:
-  - name: yourusername1
-    pass: yourpassword1
+socks5_proxy_name: socks5-proxy
+socks5_proxy_image: wernight/dante
+socks5_proxy_address: proxy.example.com
+socks5_proxy_port: 1080
+socks5_proxy_auth: false
+socks5_proxy_users:
+  - { login: "yourusername1", password: "yourpassword1" }
+  - { login: "yourusername2", password: "yourpassword2" }
+  - { login: "yourusername3", password: "yourpassword3" }

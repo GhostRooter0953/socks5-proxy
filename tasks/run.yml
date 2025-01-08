@@ -7,7 +7,7 @@
 
   - name: Build Docker image
     command:
-      cmd: docker build -t {{ proxy_name }} .
+      cmd: docker build -t {{ socks5_proxy_name }} .
       chdir: /root/docker
     tags: update
 
@@ -32,4 +32,9 @@
     file:
       path: /root/docker/Dockerfile
       state: absent
+    tags: update
+
+  - name: Restart proxy
+    command:
+      cmd: docker restart {{ socks5_proxy_name }}
     tags: update

@@ -1,10 +1,10 @@
 services:
-  {{ proxy_name }}:
-    image: {{ proxy_name }}
-    container_name: {{ proxy_name }}
-    hostname: {{ proxy_address }}
+  {{ socks5_proxy_name }}:
+    image: {{ socks5_proxy_name }}
+    container_name: {{ socks5_proxy_name }}
+    hostname: {{ socks5_proxy_address }}
     ports:
-      - "{{ proxy_port }}:1080"
+      - "{{ socks5_proxy_port }}:1080"
     volumes:
       - /root/docker/socksproxy/sockd.conf:/etc/sockd.conf
     restart: unless-stopped

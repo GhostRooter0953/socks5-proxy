@@ -2,7 +2,7 @@ logoutput: stderr
 internal: 0.0.0.0 port = 1080
 external: eth0
 external.rotation: route
-{% if proxy_auth == true %}
+{% if socks5_proxy_auth == true %}
 socksmethod: username
 {% else %}
 socksmethod: username none
@@ -19,7 +19,7 @@ socks pass {
     from: 0.0.0.0/0 to: 0.0.0.0/0
     command: bind connect udpassociate
     log: error
-{% if proxy_auth == true %}
+{% if socks5_proxy_auth == true %}
 socksmethod: username
 {% endif %}
 }
